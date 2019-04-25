@@ -30,14 +30,15 @@ int main(int argc, char * const *argv)
 
 ### Functions to create matrix
 
-There are different functions to create a matrix
+There are different functions to create a matrix.
+The next functions are going to have several parameters in common. Other parameters will be descripted directly in the functions description.
+
+* __rows__ - _Number_ - The number of rows in the matrix.
+* __cols__ - _Number_ - The number of columns in the matrix. 
 
 #### zeros(rows, cols)
 
 This function create a matrix of rows x cols, filled with zeros.
-
-* __rows__ - _Number_ - The number of rows in the matrix.
-* __cols__ - _Number_ - The number of columns in the matrix. 
 
 ```c
 // Create a matrix of 2 x 3.
@@ -49,14 +50,25 @@ zeros(2, 3);
 
 This function create a matrix of rows x cols, filled with value.
 
-* __rows__ - _Number_ - The number of rows in the matrix.
-* __cols__ - _Number_ - The number of columns in the matrix.
 * __value__ - _Float_ - The value used to fill the matrix.
 
 ```c
 // Create a matrix of 4 x 1 filled with -1.
 custom(4, 1, -1);
 ```
+
+
+#### identity(n)
+
+This function create a matrix of rows x cols, filled with value.
+
+* __n__ - _Number_ - Size of the matrix (n x n).
+
+```c
+// Create a 4 x 4 identity matrix.
+identity(4);
+```
+
 
 #### matrix_destroy(matrix)
 
