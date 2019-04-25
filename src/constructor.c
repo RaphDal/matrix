@@ -4,7 +4,7 @@ matrix_t *custom(size_t rows, size_t cols, float value)
 {
     matrix_t *matrix;
 
-    if (rows <= 0 || cols <= 0 || !(matrix = malloc(sizeof(matrix_t))))
+    if (!rows || !cols || !(matrix = malloc(sizeof(matrix_t))))
         return (NULL);
     matrix->rows = rows;
     matrix->cols = cols;
@@ -22,4 +22,16 @@ matrix_t *custom(size_t rows, size_t cols, float value)
 matrix_t *zeros(size_t rows, size_t cols)
 {
     return (custom(rows, cols, 0));
+}
+
+matrix_t *identity(size_t n)
+{
+    matrix_t *matrix;
+
+    if (!n)
+        return (NULL);
+    matrix = custom(n, n, 0);
+    for (size_t i = 0; i < n; i++)
+        matrix->matrix[i][i] = 1;
+    return (matrix);    
 }
