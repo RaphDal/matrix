@@ -12,6 +12,7 @@ typedef struct matrix matrix_t;
 
 matrix_t *custom(size_t rows, size_t cols, float value);
 matrix_t *zeros(size_t rows, size_t cols);
+matrix_t *identity(size_t n);
 
 /*
 ** destroy.c
