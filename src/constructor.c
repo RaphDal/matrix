@@ -35,3 +35,15 @@ matrix_t *identity(size_t n)
         matrix->matrix[i][i] = 1;
     return (matrix);    
 }
+
+matrix_t *matrix_copy(matrix_t *a)
+{
+    matrix_t *matrix;
+
+    if (!a || !(matrix = zeros(a->rows, a->cols)))
+        return (NULL);
+    for (size_t i = 0; i < matrix->rows; i++)
+        for (size_t j = 0; j < matrix->cols; j++)
+            matrix->matrix[i][j] = a->matrix[i][j];
+    return (matrix);
+}
