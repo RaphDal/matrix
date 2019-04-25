@@ -52,7 +52,7 @@ debug:
 
 $(BUILD_DIR)/$(NAME):	$(OBJ)
 	@mkdir -p $(BUILD_DIR)
-	ar rc $(BUILD_DIR)/$(NAME) $(OBJ)
+	ar rc $(BUILD_DIR)/lib$(NAME) $(OBJ)
 	cp $(INCLUDE_DIR)/matrix.h $(BUILD_DIR)
 
 $(SRC_DIR)/%.o:	$(SRC_DIR)/%.c	$(HEADERS)
