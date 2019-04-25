@@ -3,7 +3,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdbool.h>
 
 typedef struct matrix matrix_t;
 
@@ -54,12 +53,5 @@ matrix_t *matrix_mul(matrix_t *a, matrix_t *b);
 
 matrix_t *matrix_div(matrix_t *a, matrix_t *b);
 matrix_t *matrix_inverse(matrix_t *a);
-
-/*
-** conditions.c
-*/
-
-bool matrix_is_squared(matrix_t *a);
-bool matrix_is_multiplicable(matrix_t *a, matrix_t *b);
 
 #endif /* !MATRIX_H_ */

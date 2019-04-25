@@ -15,7 +15,14 @@ matrix_t *matrix_mul(matrix_t *a, matrix_t *b)
     matrix_t *matrix;
     float res;
 
-    if (!a || !b || a->cols != b->rows || !(matrix = zeros(a->rows, b->cols)))
+    if (!matrix_is_multiplicable(a, b))
+        if (matrix_is_multiplicable(b, a)) {
+            matrix = a;
+            a = b;
+            b = matrix;
+        } else
+            return (error_ptr("Matrices can not be multiplied"));
+    if (!(matrix = zeros(a->rows, b->cols)))
         return (NULL);
     for (size_t i = 0; i < matrix->rows; i++)
         for (size_t j = 0; j < matrix->cols; j++) {
