@@ -54,4 +54,3 @@ dkms.conf
 # VS Code
 .vscode
 main.c
-builds/
