@@ -52,5 +52,6 @@ matrix_t *matrix_mul(matrix_t *a, matrix_t *b);
 */
 
 matrix_t *matrix_div(matrix_t *a, matrix_t *b);
+matrix_t *matrix_inverse(matrix_t *a);
 
 #endif /* !MATRIX_H_ */

@@ -16,3 +16,15 @@ matrix_t *matrix_div(matrix_t *a, matrix_t *b)
         }
     return (matrix);
 }
+
+matrix_t *matrix_inverse(matrix_t *a)
+{
+    matrix_t *matrix;
+
+    if (!a || !(matrix = matrix_copy(a)))
+        return (NULL);
+    for (size_t i = 0; i < matrix->rows; i++)
+        for (size_t j = 0; j < matrix->cols; j++)
+            matrix->matrix[i][j] = 1 / matrix->matrix[i][j];
+    return (matrix);
+}
