@@ -2,6 +2,7 @@
 #define PRIVATE_H_
 
 #include "matrix.h"
+#include "errors.h"
 
 struct matrix
 {
@@ -17,5 +18,6 @@ struct matrix
 
 void *error_ptr(char const *msg);
 int error_int(char const *msg);
+bool error_bool(char const *msg);
 
 #endif /* !PRIVATE_H_ */

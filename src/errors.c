@@ -2,7 +2,7 @@
 
 static void print_error(char const *msg)
 {
-    fprintf(stderr, "matrix: %s\n", msg);
+    fprintf(stderr, "matrix: %s.\n", msg);
 }
 
 void *error_ptr(char const *msg)
@@ -17,7 +17,8 @@ int error_int(char const *msg)
     return (-1);
 }
 
-void *error_malloc(void)
+bool error_bool(char const *msg)
 {
-    print_error("Not enough memory to malloc");
+    print_error(msg);
+    return (false);
 }

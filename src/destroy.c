@@ -3,7 +3,7 @@
 int matrix_destroy(matrix_t *matrix)
 {
     if (!matrix)
-        return (-1);
+        return (error_int(ERROR_NULL_PARAMETER));
     for (size_t i = 0; i < matrix->rows; i++)
         free(matrix->matrix[i]);
     free(matrix->matrix);

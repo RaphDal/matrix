@@ -5,7 +5,11 @@ matrix_t *matrix_div(matrix_t *a, matrix_t *b)
     matrix_t *matrix;
     float res;
 
-    if (!a || !b || a->cols != b->rows || !(matrix = zeros(a->rows, b->cols)))
+    if (!a || !b)
+        return (error_ptr(ERROR_NULL_PARAMETER));
+    if (a->cols != b->rows)
+        return (error_ptr(ERROR_MUL_ROWS_COLS));
+    if (!(matrix = zeros(a->rows, b->cols)))
         return (NULL);
     for (size_t i = 0; i < matrix->rows; i++)
         for (size_t j = 0; j < matrix->cols; j++) {
@@ -21,7 +25,9 @@ matrix_t *matrix_inverse(matrix_t *a)
 {
     matrix_t *matrix;
 
-    if (!a || !(matrix = matrix_copy(a)))
+    if (!a)
+        return (error_ptr(ERROR_NULL_PARAMETER));
+    if (!(matrix = matrix_copy(a)))
         return (NULL);
     for (size_t i = 0; i < matrix->rows; i++)
         for (size_t j = 0; j < matrix->cols; j++)
