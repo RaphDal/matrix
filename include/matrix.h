@@ -14,6 +14,12 @@ matrix_t *custom(size_t rows, size_t cols, float value);
 matrix_t *zeros(size_t rows, size_t cols);
 
 /*
+** destroy.c
+*/
+
+int matrix_destroy(matrix_t *matrix);
+
+/*
 ** display.c
 */
 
@@ -44,11 +50,5 @@ matrix_t *matrix_mul(matrix_t *a, matrix_t *b);
 */
 
 matrix_t *matrix_div(matrix_t *a, matrix_t *b);
-
-/*
-** destroy.c
-*/
-
-int matrix_destroy(matrix_t *matrix);
 
 #endif /* !MATRIX_H_ */
