@@ -2,7 +2,8 @@
 
 static void print_error(char const *msg)
 {
-    fprintf(stderr, "matrix: %s.\n", msg);
+    if (disperror)
+        fprintf(stderr, "matrix: %s.\n", msg);
 }
 
 void *error_ptr(char const *msg)

@@ -7,6 +7,8 @@
 
 typedef struct matrix matrix_t;
 
+static bool disperror = true;
+
 /*
 ** constructor.c
 */
