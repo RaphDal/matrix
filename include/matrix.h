@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 typedef struct matrix matrix_t;
 
@@ -70,5 +71,11 @@ bool matrix_is_multiplicable(matrix_t *a, matrix_t *b);
 matrix_t *matrix_transpose(matrix_t *a);
 matrix_t *matrix_inverse(matrix_t *a);
 matrix_t *matrix_cofactor(matrix_t *a);
+
+/*
+** str.c
+*/
+
+char *matrix_getstr(matrix_t *a, int prec);
 
 #endif /* !MATRIX_H_ */
