@@ -8,7 +8,7 @@ char *matrix_getstr(matrix_t *a, int prec)
 
     if (!a)
         return (error_ptr(ERROR_NULL_PARAMETER));
-    size = a->rows * (a->cols * (prec + 6) + 4) + 3;
+    size = a->rows * (a->cols * (prec + 4) + 3) + 1;
     if (!(buffer = malloc(sizeof(char) * size)))
         return (error_ptr(ERROR_MALLOC));
     buffer[index++] = '[';
