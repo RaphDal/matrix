@@ -23,3 +23,9 @@ bool error_bool(char const *msg)
     print_error(msg);
     return (false);
 }
+
+float error_float(char const *msg)
+{
+    print_error(msg);
+    return (-1.);
+}
