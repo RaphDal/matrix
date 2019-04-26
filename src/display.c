@@ -6,7 +6,7 @@ int matrix_display_prec(matrix_t *matrix, int prec)
         return (error_int(ERROR_NULL_PARAMETER));
     for (size_t i = 0; i < matrix->rows; i++) {
         for (size_t j = 0; j < matrix->cols; j++)
-            printf("% .*f ", prec, matrix->matrix[i][j]);
+            printf("% 4.*f ", prec, matrix->matrix[i][j]);
         printf("\n");
     }
     return (0);

@@ -68,5 +68,7 @@ bool matrix_is_multiplicable(matrix_t *a, matrix_t *b);
 */
 
 matrix_t *matrix_transpose(matrix_t *a);
+matrix_t *matrix_inverse(matrix_t *a);
+matrix_t *matrix_cofactor(matrix_t *a);
 
 #endif /* !MATRIX_H_ */

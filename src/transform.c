@@ -56,3 +56,44 @@ float matrix_determinant(matrix_t *a)
     }
     return (res);
 }
+
+matrix_t *matrix_cofactor(matrix_t *a)
+{
+    matrix_t *matrix;
+    matrix_t *b;
+    float plus = 1;
+
+    if (!a)
+        return (error_ptr(ERROR_NULL_PARAMETER));
+    if (a->rows != a->cols)
+        return (error_ptr(ERROR_NOSQUARED_MATRIX));
+    if (!(matrix = matrix_copy(a)))
+        return (NULL);
+    for (size_t i = 0; i < matrix->rows; i++) {
+        for (size_t j = 0; j < matrix->cols; j++) {
+            b = matrix_pattern(a, i, j);
+            matrix->matrix[i][j] = plus * matrix_determinant(b);
+            plus *= -1;
+            matrix_destroy(b);
+        }
+    }
+    return (matrix);
+}
+
+matrix_t *matrix_inverse(matrix_t *a)
+{
+    float det;
+    matrix_t *b;
+    matrix_t *matrix;
+
+    if (!a)
+        return (error_ptr(ERROR_NULL_PARAMETER));
+    if (a->rows != a->cols)
+        return (error_ptr(ERROR_NOSQUARED_MATRIX));
+    det = matrix_determinant(a);
+    b = matrix_cofactor(a);
+    matrix = matrix_transpose(b);
+    matrix_destroy(b);
+    matrix_scale(matrix, 1 / det);
+    return (matrix);
+}
