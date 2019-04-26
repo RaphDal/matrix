@@ -61,4 +61,10 @@ matrix_t *matrix_div(matrix_t *a, matrix_t *b);
 bool matrix_is_squared(matrix_t *a);
 bool matrix_is_multiplicable(matrix_t *a, matrix_t *b);
 
+/*
+** transform.c
+*/
+
+matrix_t *matrix_transpose(matrix_t *a);
+
 #endif /* !MATRIX_H_ */
