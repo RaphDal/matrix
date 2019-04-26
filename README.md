@@ -60,7 +60,7 @@ custom(4, 1, -1);
 
 #### identity(n)
 
-This function create a matrix of rows x cols, filled with value.
+This function create a n x n identity matrix.
 
 * __n__ - _Number_ - Size of the matrix (n x n).
 
