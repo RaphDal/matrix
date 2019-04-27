@@ -6,7 +6,13 @@
 #include <stdbool.h>
 #include <string.h>
 
-typedef struct matrix matrix_t;
+typedef struct matrix
+{
+    size_t rows;
+    size_t cols;
+
+    float **matrix;
+} matrix_t;
 
 static bool disperror = true;
 

@@ -4,14 +4,6 @@
 #include "matrix.h"
 #include "errors.h"
 
-struct matrix
-{
-    size_t rows;
-    size_t cols;
-
-    float **matrix;
-};
-
 /*
 ** errors.c
 */
