@@ -16,6 +16,8 @@ typedef struct matrix
 
 static bool disperror = true;
 
+static size_t normal_limit = 10000;
+
 /*
 ** constructor.c
 */
@@ -83,5 +85,11 @@ matrix_t *matrix_cofactor(matrix_t *a);
 */
 
 char *matrix_getstr(matrix_t *a, int prec);
+
+/*
+** normal.c
+*/
+
+matrix_t *matrix_normal(matrix_t *features, matrix_t *labels);
 
 #endif /* !MATRIX_H_ */
