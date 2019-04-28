@@ -14,30 +14,26 @@ matrix_t *matrix_transpose(matrix_t *a)
     return (matrix);
 }
 
-static matrix_t *matrix_pattern(matrix_t *a, size_t i, size_t j)
+static void matrix_pattern(matrix_t *a, matrix_t *buffer, size_t i, size_t j)
 {
     int dec_rows = 0;
     int dec_cols = 0;
-    matrix_t *matrix = zeros(a->rows - 1, a->cols - 1);
 
-    if (!matrix)
-        return (NULL);
     for (size_t k = 0; k < a->rows - 1; k++) {
         dec_rows = k == i ? 1 : dec_rows;
         dec_cols = 0;
         for (size_t l = 0; l < a->cols - 1; l++) {
             dec_cols = l == j ? 1 : dec_cols;
-            matrix->matrix[k][l] = a->matrix[k + dec_rows][l + dec_cols];
+            buffer->matrix[k][l] = a->matrix[k + dec_rows][l + dec_cols];
         }
     }
-    return (matrix);
 }
 
 float matrix_determinant(matrix_t *a)
 {
-    matrix_t *b;
     float res = 0;
     float plus = 1;
+    matrix_t *buffer;
 
     if (!a)
         return (error_float(ERROR_NULL_PARAMETER));
@@ -48,19 +44,21 @@ float matrix_determinant(matrix_t *a)
     if (a->rows == 2)
         return ((a->matrix[0][0] * a->matrix[1][1]) -
         (a->matrix[0][1] * a->matrix[1][0]));
+    if (!(buffer = zeros(a->rows - 1, a->cols - 1)))
+        return (-1);
     for (size_t i = 0; i < a->rows; i++) {
-        b = matrix_pattern(a, i, 0);
-        res += plus * a->matrix[i][0] * matrix_determinant(b);
-        matrix_destroy(b);
+        matrix_pattern(a, buffer, i, 0);
+        res += plus * a->matrix[i][0] * matrix_determinant(buffer);
         plus *= -1;
     }
+    matrix_destroy(buffer);
     return (res);
 }
 
 matrix_t *matrix_cofactor(matrix_t *a)
 {
     matrix_t *matrix;
-    matrix_t *b;
+    matrix_t *buffer;
     float plus = 1;
 
     if (!a)
@@ -69,14 +67,16 @@ matrix_t *matrix_cofactor(matrix_t *a)
         return (error_ptr(ERROR_NOSQUARED_MATRIX));
     if (!(matrix = matrix_copy(a)))
         return (NULL);
+    if (!(buffer = zeros(a->rows - 1, a->cols - 1)))
+        return (NULL);
     for (size_t i = 0; i < matrix->rows; i++) {
         for (size_t j = 0; j < matrix->cols; j++) {
-            b = matrix_pattern(a, i, j);
-            matrix->matrix[i][j] = plus * matrix_determinant(b);
+            matrix_pattern(a, buffer, i, j);
+            matrix->matrix[i][j] = plus * matrix_determinant(buffer);
             plus *= -1;
-            matrix_destroy(b);
         }
     }
+    matrix_destroy(buffer);
     return (matrix);
 }
 
