@@ -15,6 +15,8 @@ matrix_t *matrix_mul(matrix_t *a, matrix_t *b)
     matrix_t *matrix;
     float res;
 
+    if (!a || !b)
+        return (error_ptr(ERROR_NULL_PARAMETER));
     if (a->cols != b->rows)
         return (error_ptr(ERROR_MUL_ROWS_COLS));
     if (!(matrix = zeros(a->rows, b->cols)))
