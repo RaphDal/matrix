@@ -14,11 +14,11 @@ HEADERS		:=		$(shell find $(INCLUDE_DIR)/ -type f -name '*.h')
 
 SRC			:=		$(shell find $(SRC_DIR)/ -type f -name '*.c')
 
-OBJ			=		$(SRC:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
+OBJ			=		$(SRC:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 WARN		=		-W -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -Wunreachable-code
 
-CFLAGS		=		-D _GNU_SOURCE -I$(INCLUDE_DIR)
+CFLAGS		=		-D _GNU_SOURCE -I$(INCLUDE_DIR) -I.
 
 LDFLAGS		=		-lm
 
@@ -44,18 +44,17 @@ else
 CFLAGS		+=		$(PROD)
 endif
 
-all:	$(BUILD_DIR)/$(NAME)
+all:	$(NAME)
 	@printf "$(GREEN)All done (find the library and include in $(BUILD_DIR))$(WHITE)\n"
 
 debug:
 	$(V)$(MAKE) --no-print-directory -s $(THIS) all BUILD=debug
 
-$(BUILD_DIR)/$(NAME):	$(OBJ)
+$(NAME):	$(OBJ)
 	@mkdir -p $(BUILD_DIR)
-	ar rc $(BUILD_DIR)/lib$(NAME) $(OBJ)
-	cp $(INCLUDE_DIR)/matrix.h $(BUILD_DIR)
+	ar rc lib$(NAME) $(OBJ)
 
-$(SRC_DIR)/%.o:	$(SRC_DIR)/%.c	$(HEADERS)
+$(BUILD_DIR)/%.o:	$(SRC_DIR)/%.c	$(HEADERS)
 	$(V)mkdir -p $(dir $@)
 	$(CC) -o $@ -c $< $(CFLAGS) $(LDFLAGS)
 
