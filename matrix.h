@@ -101,4 +101,11 @@ matrix_t *matrix_normal(matrix_t *features, matrix_t *labels);
 
 matrix_t *matrix_size(matrix_t *matrix);
 
+
+/*
+** sigmoid.c
+*/
+
+int matrix_sigmoid(matrix_t *matrix);
+
 #endif /* !MATRIX_H_ */
