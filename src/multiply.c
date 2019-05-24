@@ -7,6 +7,8 @@ int this_matrix_mul(matrix_t *res, matrix_t *a, matrix_t *b)
     size_t len = a->cols;
     float imp = 0;
 
+    if (res == a || res == b)
+        return (error_int("You must bufferise your matrix before multiply"));
     if (a->cols != b->rows) 
         return (-1);
     for (size_t i = 0; i < rows; i++)
