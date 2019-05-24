@@ -106,6 +106,7 @@ matrix_t *matrix_size(matrix_t *matrix);
 ** sigmoid.c
 */
 
+int this_matrix_sigmoid(matrix_t *res, matrix_t *matrix);
 int matrix_sigmoid(matrix_t *matrix);
 
 #endif /* !MATRIX_H_ */
