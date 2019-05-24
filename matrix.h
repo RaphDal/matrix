@@ -99,6 +99,6 @@ matrix_t *matrix_normal(matrix_t *features, matrix_t *labels);
 ** size.c
 */
 
-matrix_t *matrix_size(matrix_t *matrix)
+matrix_t *matrix_size(matrix_t *matrix);
 
 #endif /* !MATRIX_H_ */
