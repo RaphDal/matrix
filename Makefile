@@ -20,8 +20,6 @@ WARN		=		-W -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -Wunreachab
 
 CFLAGS		=		-D _GNU_SOURCE -I$(INCLUDE_DIR) -I.
 
-LDFLAGS		=		-lm
-
 DEB			=		$(WARN) -D_DEBUG -g3 -O0
 
 PROD		=		-DNDEBUG -fno-builtin
@@ -55,7 +53,7 @@ $(NAME):	$(OBJ)
 
 $(BUILD_DIR)/%.o:	$(SRC_DIR)/%.c	$(HEADERS)
 	$(V)mkdir -p $(dir $@)
-	$(CC) -o $@ -c $< $(CFLAGS) $(LDFLAGS)
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
 	$(V)find $(ROOT) -name \*.o -type f -delete
