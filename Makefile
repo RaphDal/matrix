@@ -45,7 +45,6 @@ CFLAGS		+=		$(PROD)
 endif
 
 all:	$(NAME)
-	@printf "$(GREEN)All done (find the library and include in $(BUILD_DIR))$(WHITE)\n"
 
 debug:
 	$(V)$(MAKE) --no-print-directory -s $(THIS) all BUILD=debug
