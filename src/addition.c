@@ -10,7 +10,7 @@ int this_matrix_add(matrix_t *res, matrix_t *a, matrix_t *b)
 
     if (res->rows != a->rows || res->rows != b->rows ||
     res->cols != a->cols || res->cols != b->cols)
-        return (-1);
+        return (error_int(ERROR_NOT_SAME_SIZE));
     for(size_t i = 0; i < rows; i++)
         for (size_t j = 0; j < cols; j++)
             arr_res[i][j] = arr_a[i][j] + arr_b[i][j];

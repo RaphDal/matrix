@@ -18,7 +18,7 @@ OBJ			=		$(SRC:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 WARN		=		-W -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -Wunreachable-code
 
-CFLAGS		=		-D _GNU_SOURCE -I$(INCLUDE_DIR) -I.
+CFLAGS		=		-D _GNU_SOURCE -I$(INCLUDE_DIR) -I. -g
 
 DEB			=		$(WARN) -D_DEBUG -g3 -O0
 

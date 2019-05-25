@@ -60,6 +60,7 @@ matrix_t *matrix_sub(matrix_t *a, matrix_t *b);
 int matrix_scale(matrix_t *matrix, float coef);
 int this_matrix_mul(matrix_t *res, matrix_t *a, matrix_t *b);
 matrix_t *matrix_mul(matrix_t *a, matrix_t *b);
+int this_matrix_mul_transposed(matrix_t *res, matrix_t *a, matrix_t *b);
 
 /*
 ** divise.c
@@ -108,5 +109,15 @@ matrix_t *matrix_size(matrix_t *matrix);
 
 int this_matrix_sigmoid(matrix_t *res, matrix_t *matrix);
 int matrix_sigmoid(matrix_t *matrix);
+
+
+/*
+** errors.c
+*/
+
+void *error_ptr(char const *msg);
+int error_int(char const *msg);
+bool error_bool(char const *msg);
+float error_float(char const *msg);
 
 #endif /* !MATRIX_H_ */

@@ -10,7 +10,7 @@ int this_matrix_mul(matrix_t *res, matrix_t *a, matrix_t *b)
     if (res == a || res == b)
         return (error_int("You must bufferise your matrix before multiply"));
     if (a->cols != b->rows) 
-        return (-1);
+        return (error_int(ERROR_MUL_ROWS_COLS));
     for (size_t i = 0; i < rows; i++)
         for (size_t j = 0; j < cols; j++) {
             imp = 0;
@@ -33,4 +33,26 @@ matrix_t *matrix_mul(matrix_t *a, matrix_t *b)
         return (NULL);
     this_matrix_mul(res, a, b);
     return (res);
+}
+
+/*
+** Use a as transpose to multiply
+*/
+int this_matrix_mul_transposed(matrix_t *res, matrix_t *a, matrix_t *b)
+{
+    size_t cols_a = a->cols;
+    size_t cols_b = b->cols;
+    size_t len = a->rows;
+    float imp;
+
+    if (a->rows != b->rows) 
+        return (error_int(ERROR_MUL_ROWS_COLS));
+    for (size_t i = 0; i < cols_a; i++)
+        for (size_t j = 0; j < cols_b; j++) {
+            imp = 0;
+            for (size_t k = 0; k < len; k++)
+                imp += a->matrix[k][i] * b->matrix[k][j];
+            res->matrix[i][j] = imp;
+        }
+    return (0);
 }
