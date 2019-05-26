@@ -1,3 +1,4 @@
+#include <math.h>
 #include "private.h"
 
 int matrix_log(matrix_t *res, matrix_t *matrix)
