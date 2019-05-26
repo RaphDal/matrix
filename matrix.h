@@ -121,4 +121,13 @@ int error_int(char const *msg);
 bool error_bool(char const *msg);
 float error_float(char const *msg);
 
+
+/*
+** logarithme.c
+*/
+
+int matrix_log(matrix_t *res, matrix_t *matrix);
+int this_matrix_log(matrix_t *matrix);
+
+
 #endif /* !MATRIX_H_ */
