@@ -61,6 +61,7 @@ int matrix_scale(matrix_t *matrix, float coef);
 int this_matrix_mul(matrix_t *res, matrix_t *a, matrix_t *b);
 matrix_t *matrix_mul(matrix_t *a, matrix_t *b);
 int this_matrix_mul_transposed(matrix_t *res, matrix_t *a, matrix_t *b);
+int this_matrix_add_mul(matrix_t *res, matrix_t *a, matrix_t *b);
 
 /*
 ** divise.c

@@ -21,6 +21,27 @@ int this_matrix_mul(matrix_t *res, matrix_t *a, matrix_t *b)
     return (0);
 }
 
+int this_matrix_add_mul(matrix_t *res, matrix_t *a, matrix_t *b)
+{
+    size_t rows = a->rows;
+    size_t cols = b->cols;
+    size_t len = a->cols;
+    float imp = 0;
+
+    if (res == a || res == b)
+        return (error_int("You must bufferise your matrix before multiply"));
+    if (a->cols != b->rows) 
+        return (error_int(ERROR_MUL_ROWS_COLS));
+    for (size_t i = 0; i < rows; i++)
+        for (size_t j = 0; j < cols; j++) {
+            imp = 0;
+            for (size_t k = 0; k < len; k++)
+                imp += a->matrix[i][k] * b->matrix[k][j];
+            res->matrix[i][j] += imp;
+        }
+    return (0);
+}
+
 matrix_t *matrix_mul(matrix_t *a, matrix_t *b)
 {
     matrix_t *res;
