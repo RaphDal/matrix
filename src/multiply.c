@@ -77,3 +77,25 @@ int this_matrix_mul_transposed(matrix_t *res, matrix_t *a, matrix_t *b)
         }
     return (0);
 }
+
+/*
+** Use b as transpose to multiply
+*/
+int this_matrix_mul_nt(matrix_t *res, matrix_t *a, matrix_t *b)
+{
+    size_t rows_a = a->rows;
+    size_t rows_b = b->rows;
+    size_t len = a->cols;
+    float imp;
+
+    if (a->cols != b->cols) 
+        return (error_int(ERROR_MUL_ROWS_COLS));
+    for (size_t i = 0; i < rows_a; i++)
+        for (size_t j = 0; j < rows_b; j++) {
+            imp = 0;
+            for (size_t k = 0; k < len; k++)
+                imp += a->matrix[i][k] * b->matrix[j][k];
+            res->matrix[i][j] = imp;
+        }
+    return (0);
+}
