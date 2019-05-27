@@ -131,4 +131,10 @@ int matrix_log(matrix_t *res, matrix_t *matrix);
 int this_matrix_log(matrix_t *matrix);
 
 
+/*
+** import.c
+*/
+
+matrix_t *matrix_import_mat(char const *filepath);
+
 #endif /* !MATRIX_H_ */
