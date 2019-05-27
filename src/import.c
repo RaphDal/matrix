@@ -69,6 +69,5 @@ matrix_t *matrix_import_mat(char const *filepath)
         printf("Error during parsing\n");
         return (NULL);
     }
-    matrix_display(res);
     return (res);
 }
