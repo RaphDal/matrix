@@ -71,13 +71,6 @@ int matrix_mul_tt(matrix_t **matrix_ptr, matrix_t *a, matrix_t *b);
 
 
 /*
-** divise.c
-*/
-
-matrix_t *matrix_div(matrix_t *a, matrix_t *b);
-
-
-/*
 ** conditions.c
 */
 
@@ -115,6 +108,7 @@ matrix_t *matrix_size(matrix_t *matrix);
 int matrix_point_mul(matrix_t **matrix_ptr, matrix_t *a, float coef);
 int matrix_log(matrix_t **matrix_ptr, matrix_t *a);
 int matrix_sigmoid(matrix_t **matrix_ptr, matrix_t *a);
+int matrix_point_div(matrix_t **matrix_ptr, matrix_t *a, matrix_t *b);
 
 
 /*
