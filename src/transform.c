@@ -94,6 +94,6 @@ matrix_t *matrix_inverse(matrix_t *a)
     b = matrix_cofactor(a);
     matrix = matrix_transpose(b);
     matrix_destroy(b);
-    matrix_scale(matrix, 1 / det);
+    matrix_point_mul(&matrix, matrix, 1 / det);
     return (matrix);
 }

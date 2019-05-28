@@ -39,7 +39,7 @@ int matrix_log(matrix_t **matrix_ptr, matrix_t *a)
     return (0);
 }
 
-int matrix_sigmoid(matrix_t **matrix_ptr, matrix_t *a)
+int matrix_point_sigmoid(matrix_t **matrix_ptr, matrix_t *a)
 {
     matrix_t *result;
 
