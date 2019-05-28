@@ -45,18 +45,11 @@ int matrix_display(matrix_t *matrix);
 
 
 /*
-** addition.c
+** add_sub.c
 */
 
-matrix_t *matrix_add(matrix_t *a, matrix_t *b);
-
-
-/*
-** substract.c
-*/
-
-int this_matrix_add(matrix_t *res, matrix_t *a, matrix_t *b);
-matrix_t *matrix_sub(matrix_t *a, matrix_t *b);
+int matrix_add(matrix_t **matrix_ptr, matrix_t *a, matrix_t *b);
+int matrix_sub(matrix_t **matrix_ptr, matrix_t *a, matrix_t *b);
 
 
 /*
