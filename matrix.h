@@ -53,13 +53,6 @@ int matrix_sub(matrix_t **matrix_ptr, matrix_t *a, matrix_t *b);
 
 
 /*
-** scale.c
-*/
-
-int matrix_scale(matrix_t *matrix, float coef);
-
-
-/*
 ** multiply.c
 */
 
@@ -98,7 +91,8 @@ char *matrix_getstr(matrix_t *a, int prec);
 ** size.c
 */
 
-matrix_t *matrix_size(matrix_t *matrix);
+int matrix_size(matrix_t **matrix_ptr, matrix_t *a);
+int matrix_disp_size(matrix_t *a);
 
 
 /*
